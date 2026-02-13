@@ -1,0 +1,29 @@
+{
+  "name": "knowledgebase",
+  "version": "1.0.0",
+  "description": "A structured repository for storing and organizing knowledge articles",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"No tests specified yet\"",
+    "serve": "echo \"Use a static server to view the knowledge base\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofercell/knowledgebase.git"
+  },
+  "keywords": [
+    "knowledge",
+    "documentation",
+    "knowledgebase",
+    "wiki"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ofercell/knowledgebase/issues"
+  },
+  "homepage": "https://github.com/ofercell/knowledgebase#readme"
+}
