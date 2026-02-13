@@ -25,8 +25,8 @@ class Config:
     DOCUMENTS_PATH = os.getenv("DOCUMENTS_PATH", str(DATA_DIR / "documents"))
     
     # Processing Configuration
-    CHUNK_SIZE = 1000
-    CHUNK_OVERLAP = 200
+    CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1000"))
+    CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "200"))
     
     @classmethod
     def ensure_directories(cls):

@@ -97,6 +97,10 @@ class PDFProcessor(DocumentProcessor):
         chunk_size = config.CHUNK_SIZE
         chunk_overlap = config.CHUNK_OVERLAP
         
+        # Validate chunk parameters to prevent infinite loop
+        if chunk_overlap >= chunk_size:
+            chunk_overlap = chunk_size // 2
+        
         if len(text) <= chunk_size:
             return [text]
         

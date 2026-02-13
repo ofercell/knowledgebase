@@ -112,7 +112,10 @@ Answer:"""
         return {
             "answer": answer,
             "sources": sources,
-            "context_used": [r["content"][:200] + "..." for r in search_results]
+            "context_used": [
+                r["content"][:200] + "..." if len(r["content"]) > 200 else r["content"]
+                for r in search_results
+            ]
         }
     
     def extract_insights(
