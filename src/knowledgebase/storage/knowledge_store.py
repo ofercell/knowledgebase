@@ -11,7 +11,6 @@ except ImportError:
     chromadb = None
 
 from langchain_openai import OpenAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 from ..config import config
 from ..processors.base import DocumentChunk

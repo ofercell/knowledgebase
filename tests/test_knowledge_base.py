@@ -70,15 +70,18 @@ class TestConfiguration:
         from knowledgebase.config import config
         assert config is not None
     
-    @patch.dict('os.environ', {'OPENAI_API_KEY': 'test-key'})
     def test_config_validation_with_key(self):
         """Test config validation with API key."""
         from knowledgebase.config import Config
-        config = Config()
+        # Create a fresh config instance with the test key
+        old_key = Config.OPENAI_API_KEY
+        Config.OPENAI_API_KEY = 'test-key'
         try:
-            config.validate()
+            Config.validate()
         except ValueError:
             pytest.fail("Config validation should pass with API key")
+        finally:
+            Config.OPENAI_API_KEY = old_key
     
     @patch.dict('os.environ', {}, clear=True)
     def test_config_validation_without_key(self):

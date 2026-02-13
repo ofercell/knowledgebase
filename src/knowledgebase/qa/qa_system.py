@@ -3,8 +3,6 @@
 from typing import List, Dict, Any, Optional
 
 from langchain_openai import ChatOpenAI
-from langchain.chains import ConversationalRetrievalChain
-from langchain.prompts import PromptTemplate
 
 from ..config import config
 from ..storage import KnowledgeStore
