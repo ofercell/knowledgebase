@@ -5,10 +5,16 @@ from typing import List, Dict, Any
 import io
 
 try:
-    import PyPDF2
+    import pypdf
+except ImportError:
+    try:
+        import PyPDF2 as pypdf
+    except ImportError:
+        pypdf = None
+
+try:
     from PIL import Image
 except ImportError:
-    PyPDF2 = None
     Image = None
 
 from .base import DocumentProcessor, DocumentChunk
@@ -20,10 +26,10 @@ class PDFProcessor(DocumentProcessor):
     
     def __init__(self):
         """Initialize PDF processor."""
-        if PyPDF2 is None:
+        if pypdf is None:
             raise ImportError(
-                "PyPDF2 is required for PDF processing. "
-                "Install it with: pip install PyPDF2"
+                "pypdf is required for PDF processing. "
+                "Install it with: pip install pypdf"
             )
     
     def can_process(self, file_path: Path) -> bool:
@@ -45,7 +51,7 @@ class PDFProcessor(DocumentProcessor):
         
         try:
             with open(file_path, 'rb') as file:
-                pdf_reader = PyPDF2.PdfReader(file)
+                pdf_reader = pypdf.PdfReader(file)
                 metadata["num_pages"] = len(pdf_reader.pages)
                 
                 for page_num, page in enumerate(pdf_reader.pages, start=1):

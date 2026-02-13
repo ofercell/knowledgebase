@@ -34,7 +34,7 @@ setup(
         "langchain-openai>=0.0.5",
         "langchain-community>=0.0.20",
         "openai>=1.12.0",
-        "PyPDF2>=3.0.0",
+        "pypdf>=3.17.0",
         "python-docx>=1.1.0",
         "Pillow>=10.0.0",
         "pytesseract>=0.3.10",
